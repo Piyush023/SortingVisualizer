@@ -21,6 +21,7 @@
     border-radius: 2em;
     padding: 0 1em;
     background-color: #818181;
+    background-color: black;
 }
 
 .controller {
@@ -44,6 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 100%;
 }
 
 .control-pannel {
@@ -51,5 +53,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.pannel {}

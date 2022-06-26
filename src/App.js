@@ -14,6 +14,7 @@ import RotateLeft from "@material-ui/icons/RotateLeft";
 import Bar from "./components/Bar";
 //CSS
 import "./App.css";
+import DropdownMenu from "./components/Dropdown";
 
 class App extends Component {
   state = {
@@ -22,9 +23,9 @@ class App extends Component {
     colorKey: [],
     colorSteps: [],
     currentStep: 0,
-    count: 5,
-    delay: 500,
-    algorithm: "Insertion Sort",
+    count: 20,
+    delay: 100,
+    algorithm: "Bubble Sort",
     timeouts: [],
   };
 
@@ -180,17 +181,12 @@ class App extends Component {
             </button>
         );
     }
-    const [Algo, setAlgo] = useState(BubbleSort);
 
     return (
     <div className="app">
-        <div>
-        <select name="selectList" id="selectList">
-            <option value="option 1">BubbleSort</option>
-            <option value="option 2">InsertionSort</option>
-            <option value="option 2">SelectionSort</option>
-        </select>
-        </div>
+      <div>
+        <DropdownMenu/>
+      </div>
         <div className="frame">
             <div className="barsDiv container card"> {bars} </div>
         </div>
