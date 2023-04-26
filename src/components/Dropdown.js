@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-const Main = styled("div")`
+const Main = styled('div')`
   padding: 0xp;
   margin: 0px;
   font-family: sans-serif;
@@ -9,12 +9,12 @@ const Main = styled("div")`
   height: fit-content;
 `;
 
-const DropDownContainer = styled("div")`
+const DropDownContainer = styled('div')`
   width: 10.5em;
   margin: 0 auto;
 `;
 
-const DropDownHeader = styled("div")`
+const DropDownHeader = styled('div')`
   margin-bottom: 0.8em;
   padding: 0.4em 2em 0.4em 1em;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -24,7 +24,7 @@ const DropDownHeader = styled("div")`
   background: #ffffff;
 `;
 
-const DropDownTextContainer = styled("div")`
+const DropDownTextContainer = styled('div')`
   padding: 0;
   margin: 0;
   padding-left: 1em;
@@ -36,7 +36,7 @@ const DropDownTextContainer = styled("div")`
   text-align: center;
 `;
 
-const DropDownList = styled("ul")`
+const DropDownList = styled('ul')`
   padding: 0;
   margin: 0;
   padding-left: 1em;
@@ -51,48 +51,45 @@ const DropDownList = styled("ul")`
   }
 `;
 
-const ListItem = styled("li")`
+const ListItem = styled('li')`
   list-style: none;
   margin-bottom: 0.8em;
 `;
 
-const options = ["BubbleSort", "InsertionSort", "SelectionSort"];
-
+const options = ['BubbleSort', 'InsertionSort', 'SelectionSort'];
 
 const DropdownMenu = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState(null);
-    const toggling = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const toggling = () => setIsOpen(!isOpen);
 
-    const onOptionClicked = value => () => {
-      setSelectedOption(value);
-      setIsOpen(false);
-      console.log(selectedOption);
-    }
-    return (
-      <Main>
-        <DropDownTextContainer>
-          <h1>Sorting Visualizer</h1>
-          <h5>Select the Algorithm to Visualize</h5>
-        </DropDownTextContainer>
-        <DropDownContainer>
-          <DropDownHeader onClick={toggling}>
-            {selectedOption || "BubbleSort"}
-          </DropDownHeader>
-          {isOpen && (
-            <div>
-              <DropDownList>
-                {options.map(option => (
-                  <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
-                    {option}
-                  </ListItem>
-                ))}
-              </DropDownList>
-            </div>
-          )}
-        </DropDownContainer>
-      </Main>
-    );
-}
+  const onOptionClicked = (value) => () => {
+    setSelectedOption(value);
+    setIsOpen(false);
+    console.log(selectedOption);
+  };
+  return (
+    <Main>
+      <DropDownTextContainer>
+        <h1>Sorting Visualizer</h1>
+        <h5>Select the Algorithm to Visualize</h5>
+      </DropDownTextContainer>
+      <DropDownContainer>
+        <DropDownHeader onClick={toggling}>{selectedOption || 'BubbleSort'}</DropDownHeader>
+        {isOpen && (
+          <div>
+            <DropDownList>
+              {options.map((option) => (
+                <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
+                  {option}
+                </ListItem>
+              ))}
+            </DropDownList>
+          </div>
+        )}
+      </DropDownContainer>
+    </Main>
+  );
+};
 
-export default DropdownMenu
+export default DropdownMenu;
