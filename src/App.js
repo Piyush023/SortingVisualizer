@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 // Algorithms
-import BubbleSort from "./algorithms/BS";
-import InsertionSort from "./algorithms/IS";
-import SelectionSort from "./algorithms/Selection";
+import BubbleSort from './algorithms/BS';
+import InsertionSort from './algorithms/IS';
+import SelectionSort from './algorithms/Selection';
 
 // Icons
-import Play from "@material-ui/icons/PlayCircleOutlineRounded";
-import Forward from "@material-ui/icons/SkipNextRounded";
-import Backward from "@material-ui/icons/SkipPreviousRounded";
-import RotateLeft from "@material-ui/icons/RotateLeft";
+import Play from '@material-ui/icons/PlayCircleOutlineRounded';
+import Forward from '@material-ui/icons/SkipNextRounded';
+import Backward from '@material-ui/icons/SkipPreviousRounded';
+import RotateLeft from '@material-ui/icons/RotateLeft';
 
-import Bar from "./components/Bar";
+import Bar from './components/Bar';
 //CSS
-import "./App.css";
-import DropdownMenu from "./components/Dropdown";
+import './App.css';
+import DropdownMenu from './components/Dropdown';
 
 class App extends Component {
   state = {
@@ -25,14 +25,14 @@ class App extends Component {
     currentStep: 0,
     count: 20,
     delay: 100,
-    algorithm: "Bubble Sort",
-    timeouts: [],
+    algorithm: 'Bubble Sort',
+    timeouts: []
   };
 
   ALGORITHMS = {
-    "Bubble Sort": BubbleSort,
-    "Insertion Sort": InsertionSort,
-    "Selection Sort": SelectionSort,
+    'Bubble Sort': BubbleSort,
+    'Insertion Sort': InsertionSort,
+    'Selection Sort': SelectionSort
   };
 
   componentDidMount() {
@@ -48,14 +48,14 @@ class App extends Component {
 
     this.setState({
       arraySteps: steps,
-      colorSteps: colorSteps,
+      colorSteps: colorSteps
     });
   };
 
   clearTimeouts = () => {
     this.state.timeouts.forEach((timeout) => clearTimeout(timeout));
     this.setState({
-      timeouts: [],
+      timeouts: []
     });
   };
 
@@ -63,7 +63,7 @@ class App extends Component {
     let blankKey = new Array(this.state.count).fill(0);
     this.setState({
       colorKey: blankKey,
-      colorSteps: [blankKey],
+      colorSteps: [blankKey]
     });
   };
 
@@ -83,7 +83,7 @@ class App extends Component {
       {
         array: temp,
         arraySteps: [temp],
-        currentStep: 0,
+        currentStep: 0
       },
       () => {
         this.generateSteps();
@@ -98,7 +98,7 @@ class App extends Component {
       {
         array: arr,
         arraySteps: [arr],
-        currentStep: 0,
+        currentStep: 0
       },
       () => {
         this.generateSteps();
@@ -113,7 +113,7 @@ class App extends Component {
     this.setState({
       currentStep: currentStep,
       array: this.state.arraySteps[currentStep],
-      colorKey: this.state.colorSteps[currentStep],
+      colorKey: this.state.colorSteps[currentStep]
     });
   };
 
@@ -124,7 +124,7 @@ class App extends Component {
     this.setState({
       currentStep: currentStep,
       array: this.state.arraySteps[currentStep],
-      colorKey: this.state.colorSteps[currentStep],
+      colorKey: this.state.colorSteps[currentStep]
     });
   };
 
@@ -143,7 +143,7 @@ class App extends Component {
         this.setState({
           array: steps[currentStep],
           colorKey: colorSteps[currentStep],
-          currentStep: currentStep + 1,
+          currentStep: currentStep + 1
         });
         timeouts.push(timeout);
       }, this.state.delay * i);
@@ -151,7 +151,7 @@ class App extends Component {
     }
 
     this.setState({
-      timeouts: timeouts,
+      timeouts: timeouts
     });
   };
 
@@ -176,35 +176,35 @@ class App extends Component {
       );
     } else {
       playButton = (
-            <button className="controller" onClick={this.start}>
-            <Play />
-            </button>
-        );
+        <button className="controller" onClick={this.start}>
+          <Play />
+        </button>
+      );
     }
 
     return (
-    <div className="app">
-      <div>
-        <DropdownMenu/>
-      </div>
+      <div className="app">
+        <div>
+          <DropdownMenu />
+        </div>
         <div className="frame">
-            <div className="barsDiv container card"> {bars} </div>
+          <div className="barsDiv container card"> {bars} </div>
         </div>
         <div className="control-pannel">
-            <div className="control-buttons">
-                <button className="controller" onClick={this.previousStep}>
-                    <Backward />
-                </button>
-                {playButton}
-                <button className="controller" onClick={this.nextStep}>
-                    <Forward />
-                </button>
-            </div>
+          <div className="control-buttons">
+            <button className="controller" onClick={this.previousStep}>
+              <Backward />
+            </button>
+            {playButton}
+            <button className="controller" onClick={this.nextStep}>
+              <Forward />
+            </button>
+          </div>
         </div>
         <div className="pannel"></div>
-    </div>
+      </div>
     );
-    }
+  }
 }
 
 export default App;
