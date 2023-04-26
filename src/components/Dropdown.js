@@ -24,8 +24,6 @@ const DropDownHeader = styled("div")`
   background: #ffffff;
 `;
 
-const DropDownListContainer = styled("div")``;
-
 const DropDownTextContainer = styled("div")`
   padding: 0;
   margin: 0;
@@ -82,7 +80,7 @@ const DropdownMenu = () => {
             {selectedOption || "BubbleSort"}
           </DropDownHeader>
           {isOpen && (
-            <DropDownListContainer>
+            <div>
               <DropDownList>
                 {options.map(option => (
                   <ListItem onClick={onOptionClicked(option)} key={Math.random()}>
@@ -90,7 +88,7 @@ const DropdownMenu = () => {
                   </ListItem>
                 ))}
               </DropDownList>
-            </DropDownListContainer>
+            </div>
           )}
         </DropDownContainer>
       </Main>
