@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import BubbleSort from './algorithms/BS';
 import InsertionSort from './algorithms/IS';
 import SelectionSort from './algorithms/Selection';
+import RadixSort from './algorithms/RS';
 
 // Icons
 import Play from '@material-ui/icons/PlayCircleOutlineRounded';
@@ -32,7 +33,8 @@ class App extends Component {
   ALGORITHMS = {
     'Bubble Sort': BubbleSort,
     'Insertion Sort': InsertionSort,
-    'Selection Sort': SelectionSort
+    'Selection Sort': SelectionSort,
+    'Radix Sort': RadixSort
   };
 
   componentDidMount() {

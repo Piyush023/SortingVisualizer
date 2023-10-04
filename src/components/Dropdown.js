@@ -56,7 +56,7 @@ const ListItem = styled('li')`
   margin-bottom: 0.8em;
 `;
 
-const options = ['BubbleSort', 'InsertionSort', 'SelectionSort'];
+const options = ['BubbleSort', 'InsertionSort', 'SelectionSort', 'RadixSort'];
 
 const DropdownMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
